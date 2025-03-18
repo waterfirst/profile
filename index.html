@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nakcho Choi | Display Technology Expert</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #0056b3;
+            --secondary-color: #004080;
+            --accent-color: #e7f3ff;
+            --highlight-color: #4a90e2;
+            --dark-color: #333;
+            --light-color: #f8f9fa;
+            --text-color: #444;
+            --border-radius: 8px;
+            --transition: all 0.3s ease;
+            --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            --hover-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Arial, sans-serif;
+        }
+        
+        body {
+            color: var(--text-color);
+            line-height: 1.6;
+            background-color: var(--light-color);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 50px 20px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            border-radius: var(--border-radius);
+            margin-bottom: 30px;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 20px;
+        }
+        
+        .bio {
+            max-width: 800px;
+            margin: 0 auto 20px;
+            line-height: 1.8;
+            font-size: 1.1rem;
+            position: relative;
+            padding: 0 20px;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+            position: relative;
+        }
+        
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.15);
+            color: white;
+            text-decoration: none;
+            transition: var(--transition);
+            font-size: 1.2rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .social-link:hover {
+            background-color: white;
+            color: var(--primary-color);
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        
+        .main-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .section {
+            background-color: white;
+            padding: 35px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            border-top: 4px solid var(--accent-color);
+        }
+        
+        .section:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--hover-shadow);
+            border-top-color: var(--highlight-color);
+        }
+        
+        .section-title {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid var(--accent-color);
+            font-size: 1.5rem;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 60px;
+            height: 2px;
+            background-color: var(--highlight-color);
+        }
+        
+        .skill-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        .skill-item {
+            background-color: var(--accent-color);
+            color: var(--secondary-color);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: var(--transition);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        
+        .skill-item:hover {
+            background-color: var(--highlight-color);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+        }
+        
+        .resume-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .resume-card {
+            background-color: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            border: 1px solid #eee;
+        }
+        
+        .resume-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--hover-shadow);
+        }
+        
+        .resume-header {
+            padding: 25px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .resume-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100px;
+            height: 100px;
+            background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 70%);
+            border-radius: 50%;
+            transform: translate(30%, -30%);
+        }
+        
+        .resume-body {
+            padding: 25px;
+        }
+        
+        .resume-title {
+            font-size: 1.4rem;
+            margin-bottom: 8px;
+            position: relative;
+        }
+        
+        .resume-desc {
+            opacity: 0.9;
+            margin-bottom: 15px;
+            font-size: 1rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 30px;
+            text-decoration: none;
+            transition: var(--transition);
+            font-weight: 500;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+            border: none;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            background-color: var(--secondary-color);
+            transition: all 0.5s ease;
+            z-index: -1;
+            border-radius: 30px;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .btn:hover::before {
+            width: 100%;
+        }
+        
+        .featured-projects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-top: 35px;
+        }
+        
+        .project-card {
+            background-color: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            border: 1px solid #eee;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--hover-shadow);
+        }
+        
+        .project-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .project-card:hover .project-img {
+            transform: scale(1.05);
+        }
+        
+        .project-body {
+            padding: 25px;
+        }
+        
+        .project-title {
+            color: var(--secondary-color);
+            margin-bottom: 12px;
+            font-size: 1.3rem;
+        }
+        
+        .tag-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 18px;
+        }
+        
+        .tag {
+            background-color: var(--accent-color);
+            color: var(--secondary-color);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+        
+        .tag:hover {
+            background-color: var(--highlight-color);
+            color: white;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 50px;
+            color: var(--text-color);
+            border-top: 1px solid #eee;
+        }
+        
+        .language-toggle {
+            margin-top: 25px;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            position: relative;
+        }
+        
+        .language-btn {
+            padding: 8px 20px;
+            background-color: rgba(255, 255, 255, 0.15);
+            color: white;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 500;
+            font-size: 0.95rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .language-btn:hover, .language-btn.active {
+            background-color: white;
+            color: var(--primary-color);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+        
+        .language-btn.active {
+            font-weight: 600;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+            
+            header {
+                padding: 30px 15px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .profile-img {
+                width: 120px;
+                height: 120px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Nakcho Choi (최낙초)</h1>
+            <div class="subtitle">Principal Engineer · Samsung Display</div>
+            <div class="subtitle">OLED, Micro LED & Display Technology Expert</div>
+            
+            <p class="bio">
+                With over 23 years of experience in display technologies, I specialize in Mobile OLED, Automotive OLED, LCD, and Micro LED. I've led the development of innovative technologies including Under Panel Camera, Switchable Privacy Mode, and Foldable Displays, contributing to over 140 patents.
+            </p>
+            
+            <div class="social-links">
+                <a href="https://scholar.google.com/citations?hl=ko&user=RUPcxioAAAAJ" class="social-link" target="_blank" title="Google Scholar">
+                    <i class="fas fa-graduation-cap"></i>
+                </a>
+                <a href="https://github.com/waterfirst" class="social-link" target="_blank" title="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/nakcho-choi-%E5%B4%94-%E6%B4%9B%E5%88%9D-074578bb/" class="social-link" target="_blank" title="LinkedIn">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="mailto:nakcho.choi@gmail.com" class="social-link" title="Email">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+            
+            <div class="language-toggle">
+                <button class="language-btn active" onclick="switchLanguage('en')">English</button>
+                <button class="language-btn" onclick="switchLanguage('ko')">한국어</button>
+            </div>
+        </header>
+        
+        <div class="main-content">
+            <div class="section">
+                <h2 class="section-title" id="expertise-title">Expertise</h2>
+                <p id="expertise-desc">
+                    As a display technology expert with a Ph.D. in Applied Physics, I specialize in developing cutting-edge display technologies that push the boundaries of what's possible in mobile, automotive, and wearable devices.
+                </p>
+                
+                <div class="skill-list">
+                    <span class="skill-item">OLED</span>
+                    <span class="skill-item">Micro LED</span>
+                    <span class="skill-item">LCD</span>
+                    <span class="skill-item">Automotive Display</span>
+                    <span class="skill-item">Foldable Display</span>
+                    <span class="skill-item">Under Panel Camera</span>
+                    <span class="skill-item">Switchable Privacy Mode</span>
+                    <span class="skill-item">Pixel Define Layer</span>
+                    <span class="skill-item">AI Applications</span>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2 class="section-title" id="career-title">Career Highlights</h2>
+                <ul style="list-style-type: none; padding-left: 0;">
+                    <li style="margin-bottom: 15px;">
+                        <strong>🏆 <span id="award-title">UDC Pioneering Technology Award</span></strong><br>
+                        <span id="award-desc">For wrap-around electrodes and black organic layer technology for micro LED tiled displays</span>
+                    </li>
+                    <li style="margin-bottom: 15px;">
+                        <strong>📱 <span id="fold-title">Galaxy Fold 3 Development</span></strong><br>
+                        <span id="fold-desc">Major contribution to foldable display with Under Panel Camera technology</span>
+                    </li>
+                    <li style="margin-bottom: 15px;">
+                        <strong>🚗 <span id="auto-title">Automotive OLED Innovation</span></strong><br>
+                        <span id="auto-desc">Pioneered switchable privacy mode displays for automotive applications</span>
+                    </li>
+                    <li>
+                        <strong>📝 <span id="patent-title">140+ Registered Patents</span></strong><br>
+                        <span id="patent-desc">Significant contributions across multiple display technologies</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <h2 class="section-title" id="resume-section-title" style="max-width: 1000px; margin: 40px auto 20px;">Resume / Curriculum Vitae</h2>
+        
+        <div class="resume-links">
+            <div class="resume-card">
+                <div class="resume-header">
+                    <h3 class="resume-title" id="en-resume-title">English Resume</h3>
+                    <p class="resume-desc" id="en-resume-desc">Comprehensive professional experience and achievements</p>
+                </div>
+                <div class="resume-body">
+                    <p id="en-resume-text">Detailed overview of my professional experience, technical expertise, patents, and publications in English.</p>
+                    <a href="resume-english.html" class="btn" id="en-resume-btn">View English Resume</a>
+                </div>
+            </div>
+            
+            <div class="resume-card">
+                <div class="resume-header">
+                    <h3 class="resume-title" id="ko-resume-title">한글 이력서</h3>
+                    <p class="resume-desc" id="ko-resume-desc">전문적인 경력과 업적을 한글로 정리</p>
+                </div>
+                <div class="resume-body">
+                    <p id="ko-resume-text">디스플레이 기술 분야에서의 전문 경력, 특허, 출판물 등을 한글로 상세히 정리한 이력서입니다.</p>
+                    <a href="resume-korean.html" class="btn" id="ko-resume-btn">한글 이력서 보기</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section" style="margin-top: 40px;">
+            <h2 class="section-title" id="projects-title">Featured Technologies & Projects</h2>
+            
+            <div class="featured-projects">
+                <div class="project-card">
+                    <img src="/api/placeholder/400/300" alt="Automotive OLED with Switchable Privacy Mode" class="project-img">
+                    <div class="project-body">
+                        <h3 class="project-title" id="project1-title">Automotive OLED with Switchable Privacy Mode</h3>
+                        <p id="project1-desc">Developed innovative display technology for vehicles that can switch between privacy and public viewing modes using black matrix and lens structures.</p>
+                        <div class="tag-list">
+                            <span class="tag">Automotive</span>
+                            <span class="tag">OLED</span>
+                            <span class="tag">Privacy Mode</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <img src="/api/placeholder/400/300" alt="Micro LED Tiled Display Technology" class="project-img">
+                    <div class="project-body">
+                        <h3 class="project-title" id="project2-title">Micro LED Tiled Display Technology</h3>
+                        <p id="project2-desc">Pioneered technology for forming copper lines on the side area of glass using 3D photolithography and 3D sputter process for seamless tiled displays.</p>
+                        <div class="tag-list">
+                            <span class="tag">Micro LED</span>
+                            <span class="tag">Tiled Display</span>
+                            <span class="tag">3D Sputter</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <img src="/api/placeholder/400/300" alt="Foldable Display with Under Panel Camera" class="project-img">
+                    <div class="project-body">
+                        <h3 class="project-title" id="project3-title">Foldable Display with Under Panel Camera</h3>
+                        <p id="project3-desc">Contributed to the development of Galaxy Fold 3 with Under Panel Camera technology, stylus pen compatibility, and improved efficiency through color filter innovation.</p>
+                        <div class="tag-list">
+                            <span class="tag">Foldable</span>
+                            <span class="tag">UPC</span>
+                            <span class="tag">Galaxy Fold</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>&copy; 2025 Nakcho Choi. <span id="footer-text">All rights reserved.</span></p>
+            <p id="position">Principal Engineer at Samsung Display</p>
+        </footer>
+    </div>
+    
+    <script>
+        // Define content for both languages
+        const content = {
+            en: {
+                bio: "With over 23 years of experience in display technologies, I specialize in Mobile OLED, Automotive OLED, LCD, and Micro LED. I've led the development of innovative technologies including Under Panel Camera, Switchable Privacy Mode, and Foldable Displays, contributing to over 140 patents.",
+                expertiseTitle: "Expertise",
+                expertiseDesc: "As a display technology expert with a Ph.D. in Applied Physics, I specialize in developing cutting-edge display technologies that push the boundaries of what's possible in mobile, automotive, and wearable devices.",
+                careerHighlightsTitle: "Career Highlights",
+                awardTitle: "UDC Pioneering Technology Award",
+                awardDesc: "For wrap-around electrodes and black organic layer technology for micro LED tiled displays",
+                foldTitle: "Galaxy Fold 3 Development",
+                foldDesc: "Major contribution to foldable display with Under Panel Camera technology",
+                autoTitle: "Automotive OLED Innovation",
+                autoDesc: "Pioneered switchable privacy mode displays for automotive applications",
+                patentTitle: "140+ Registered Patents",
+                patentDesc: "Significant contributions across multiple display technologies",
+                resumeTitle: "Resume / Curriculum Vitae",
+                englishResumeTitle: "English Resume",
+                englishResumeDesc: "Comprehensive professional experience and achievements",
+                englishResumeText: "Detailed overview of my professional experience, technical expertise, patents, and publications in English.",
+                englishResumeBtn: "View English Resume",
+                koreanResumeTitle: "한글 이력서",
+                koreanResumeDesc: "전문적인 경력과 업적을 한글로 정리",
+                koreanResumeText: "디스플레이 기술 분야에서의 전문 경력, 특허, 출판물 등을 한글로 상세히 정리한 이력서입니다.",
+                koreanResumeBtn: "한글 이력서 보기",
+                projectsTitle: "Featured Technologies & Projects",
+                project1Title: "Automotive OLED with Switchable Privacy Mode",
+                project1Desc: "Developed innovative display technology for vehicles that can switch between privacy and public viewing modes using black matrix and lens structures.",
+                project2Title: "Micro LED Tiled Display Technology",
+                project2Desc: "Pioneered technology for forming copper lines on the side area of glass using 3D photolithography and 3D sputter process for seamless tiled displays.",
+                project3Title: "Foldable Display with Under Panel Camera",
+                project3Desc: "Contributed to the development of Galaxy Fold 3 with Under Panel Camera technology, stylus pen compatibility, and improved efficiency through color filter innovation.",
+                footerText: "All rights reserved.",
+                position: "Principal Engineer at Samsung Display"
+            },
+            ko: {
+                bio: "디스플레이 기술 분야에서 23년 이상의 경험을 보유한 전문가로, 모바일 OLED, 차량용 OLED, LCD 및 Micro LED를 전문으로 합니다. Under Panel Camera, 전환 가능 프라이버시 모드, 폴더블 디스플레이 등 혁신적인 기술 개발을 주도하여 140건 이상의 특허에 기여했습니다.",
+                expertiseTitle: "전문 분야",
+                expertiseDesc: "응용물리학 박사로서 모바일, 자동차, 웨어러블 기기 분야에서 가능성의 한계를 넓히는 최첨단 디스플레이 기술 개발을 전문으로 합니다.",
+                careerHighlightsTitle: "주요 경력 성과",
+                awardTitle: "UDC Pioneering Technology Award 수상",
+                awardDesc: "Micro LED 타일드 디스플레이용 래핑 어라운드 전극 및 블랙 유기층 기술 개발",
+                foldTitle: "갤럭시 폴드 3 개발",
+                foldDesc: "Under Panel Camera 기술이 적용된 폴더블 디스플레이 개발에 중요한 기여",
+                autoTitle: "차량용 OLED 혁신",
+                autoDesc: "차량용 애플리케이션을 위한 전환 가능 프라이버시 모드 디스플레이 개척",
+                patentTitle: "140건 이상의 등록 특허",
+                patentDesc: "다양한 디스플레이 기술 분야에서의 중요한 기여",
+                resumeTitle: "이력서 / 경력기술서",
+                englishResumeTitle: "영문 이력서",
+                englishResumeDesc: "종합적인 전문 경력과 성과",
+                englishResumeText: "영어로 작성된 전문 경력, 기술적 전문성, 특허 및 출판물에 대한 상세한 개요입니다.",
+                englishResumeBtn: "영문 이력서 보기",
+                koreanResumeTitle: "한글 이력서",
+                koreanResumeDesc: "전문적인 경력과 업적을 한글로 정리",
+                koreanResumeText: "디스플레이 기술 분야에서의 전문 경력, 특허, 출판물 등을 한글로 상세히 정리한 이력서입니다.",
+                koreanResumeBtn: "한글 이력서 보기",
+                projectsTitle: "주요 기술 및 프로젝트",
+                project1Title: "전환 가능한 프라이버시 모드의 차량용 OLED",
+                project1Desc: "블랙 매트릭스와 렌즈 구조를 사용하여 프라이버시 모드와 공개 모드 간에 전환할 수 있는 혁신적인 차량용 디스플레이 기술을 개발했습니다.",
+                project2Title: "Micro LED 타일 디스플레이 기술",
+                project2Desc: "3D 포토리소그래피와 3D 스퍼터 공정을 사용하여 유리 측면 영역에 구리 라인을 형성하는 기술을 개척하여 완벽한 타일 디스플레이를 구현했습니다.",
+                project3Title: "Under Panel Camera가 적용된 폴더블 디스플레이",
+                project3Desc: "Under Panel Camera 기술, 스타일러스 펜 호환성, 컬러 필터 혁신을 통한 효율성 향상으로 갤럭시 폴드 3 개발에 기여했습니다.",
+                footerText: "모든 권리 보유.",
+                position: "삼성디스플레이 수석 엔지니어"
+            }
+        };
+        
+        function switchLanguage(lang) {
+            // Update active button
+            const buttons = document.querySelectorAll('.language-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            
+            const activeButton = document.querySelector(`.language-btn[onclick="switchLanguage('${lang}')"]`);
+            activeButton.classList.add('active');
+            
+            // Update content based on selected language
+            document.querySelector('.bio').textContent = content[lang].bio;
+            document.querySelector('#expertise-title').textContent = content[lang].expertiseTitle;
+            document.querySelector('#expertise-desc').textContent = content[lang].expertiseDesc;
+            document.querySelector('#career-title').textContent = content[lang].careerHighlightsTitle;
+            
+            document.querySelector('#award-title').textContent = content[lang].awardTitle;
+            document.querySelector('#award-desc').textContent = content[lang].awardDesc;
+            document.querySelector('#fold-title').textContent = content[lang].foldTitle;
+            document.querySelector('#fold-desc').textContent = content[lang].foldDesc;
+            document.querySelector('#auto-title').textContent = content[lang].autoTitle;
+            document.querySelector('#auto-desc').textContent = content[lang].autoDesc;
+            document.querySelector('#patent-title').textContent = content[lang].patentTitle;
+            document.querySelector('#patent-desc').textContent = content[lang].patentDesc;
+            
+            document.querySelector('#resume-section-title').textContent = content[lang].resumeTitle;
+            
+            document.querySelector('#en-resume-title').textContent = content[lang].englishResumeTitle;
+            document.querySelector('#en-resume-desc').textContent = content[lang].englishResumeDesc;
+            document.querySelector('#en-resume-text').textContent = content[lang].englishResumeText;
+            document.querySelector('#en-resume-btn').textContent = content[lang].englishResumeBtn;
+            
+            document.querySelector('#ko-resume-title').textContent = content[lang].koreanResumeTitle;
+            document.querySelector('#ko-resume-desc').textContent = content[lang].koreanResumeDesc;
+            document.querySelector('#ko-resume-text').textContent = content[lang].koreanResumeText;
+            document.querySelector('#ko-resume-btn').textContent = content[lang].koreanResumeBtn;
+            
+            document.querySelector('#projects-title').textContent = content[lang].projectsTitle;
+            
+            document.querySelector('#project1-title').textContent = content[lang].project1Title;
+            document.querySelector('#project1-desc').textContent = content[lang].project1Desc;
+            document.querySelector('#project2-title').textContent = content[lang].project2Title;
+            document.querySelector('#project2-desc').textContent = content[lang].project2Desc;
+            document.querySelector('#project3-title').textContent = content[lang].project3Title;
+            document.querySelector('#project3-desc').textContent = content[lang].project3Desc;
+            
+            document.querySelector('#footer-text').textContent = content[lang].footerText;
+            document.querySelector('#position').textContent = content[lang].position;
+        }
+    </script>
+</body>
+</html>

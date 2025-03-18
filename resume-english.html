@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nakcho Choi - Display Technology Expert</title>
+    <style>
+        :root {
+            --primary-color: #0056b3;
+            --secondary-color: #004080;
+            --accent-color: #e7f3ff;
+            --light-gray: #f5f5f5;
+            --dark-gray: #333;
+            --text-color: #444;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Arial, sans-serif;
+        }
+        
+        body {
+            color: var(--text-color);
+            line-height: 1.6;
+            background-color: #f9f9f9;
+            padding: 0;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background-color: white;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        header {
+            background: var(--primary-color);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .tagline {
+            font-size: 1.2rem;
+            font-weight: 300;
+            margin-bottom: 15px;
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+        
+        .contact-item {
+            margin: 0 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .section {
+            padding: 30px 40px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .section:last-child {
+            border-bottom: none;
+        }
+        
+        .section-title {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--accent-color);
+            font-size: 1.5rem;
+        }
+        
+        .summary {
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+        
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+        
+        .skill-category {
+            flex: 1 1 300px;
+        }
+        
+        .skill-category h3 {
+            color: var(--secondary-color);
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+        
+        .skill-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+        
+        .skill-item {
+            background-color: var(--accent-color);
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+        
+        .work-item {
+            margin-bottom: 30px;
+        }
+        
+        .work-title {
+            color: var(--secondary-color);
+            margin-bottom: 5px;
+            font-size: 1.2rem;
+        }
+        
+        .work-date {
+            font-style: italic;
+            color: #777;
+            margin-bottom: 10px;
+            font-size: 0.9rem;
+        }
+        
+        .work-description {
+            margin-bottom: 15px;
+        }
+        
+        .achievements {
+            margin-left: 20px;
+        }
+        
+        .achievements li {
+            margin-bottom: 8px;
+        }
+        
+        .highlights {
+            margin-top: 40px;
+        }
+        
+        .highlight-item {
+            display: flex;
+            margin-bottom: 25px;
+            padding: 15px;
+            background-color: var(--light-gray);
+            border-radius: 6px;
+        }
+        
+        .highlight-icon {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-right: 15px;
+            min-width: 40px;
+            text-align: center;
+        }
+        
+        .highlight-content h3 {
+            color: var(--secondary-color);
+            margin-bottom: 5px;
+        }
+        
+        .education-item {
+            margin-bottom: 20px;
+        }
+        
+        .education-title {
+            font-weight: bold;
+            color: var(--secondary-color);
+        }
+        
+        .education-institution {
+            font-style: italic;
+        }
+        
+        .patent-section {
+            background-color: var(--accent-color);
+        }
+        
+        .patent-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+            gap: 20px;
+        }
+        
+        .patent-item {
+            padding: 15px;
+            background-color: white;
+            border-radius: 6px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .patent-title {
+            font-weight: bold;
+            color: var(--secondary-color);
+            margin-bottom: 5px;
+        }
+        
+        .patent-info {
+            color: #777;
+            font-size: 0.9rem;
+        }
+        
+        .publication-item {
+            margin-bottom: 15px;
+        }
+        
+        .publication-title {
+            font-weight: bold;
+        }
+        
+        .training-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .training-item {
+            background-color: var(--light-gray);
+            padding: 15px;
+            border-radius: 6px;
+        }
+        
+        .training-title {
+            font-weight: bold;
+            color: var(--secondary-color);
+        }
+        
+        .software-item {
+            margin-bottom: 10px;
+        }
+        
+        .software-category {
+            font-weight: bold;
+            margin-right: 10px;
+            color: var(--secondary-color);
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: var(--primary-color);
+            color: white;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            header {
+                padding: 30px 20px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .section {
+                padding: 20px;
+            }
+            
+            .patent-list {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Nakcho Choi</h1>
+            <div class="tagline">Principal Engineer · Samsung Display</div>
+            <div class="tagline">OLED, Micro LED & Display Technology Expert - 140+ Patents</div>
+            <div class="contact-info">
+                <div class="contact-item">
+                    📧 nakcho.choi@gmail.com
+                </div>
+                <div class="contact-item">
+                    📱 +82-10-4229-7688
+                </div>
+            </div>
+        </header>
+        
+        <section class="section">
+            <h2 class="section-title">Professional Summary</h2>
+            <div class="summary">
+                Principal Engineer with over 23 years of experience in display technologies, specializing in Mobile OLED, Automotive OLED, LCD, and Micro LED. Led the development of innovative display technologies including Under Panel Camera, Switchable Privacy Mode, and Foldable Displays. Contributed to over 140 patents and numerous academic publications. Ph.D. in Applied Physics with certifications in Six Sigma Black Belt, TRIZ Level 2, and AI expertise. Currently focused on leveraging AI technologies for display development and innovation.
+            </div>
+        </section>
+        
+        <section class="section">
+            <h2 class="section-title">Core Expertise</h2>
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h3>Display Technologies</h3>
+                    <div class="skill-list">
+                        <span class="skill-item">OLED</span>
+                        <span class="skill-item">Micro LED</span>
+                        <span class="skill-item">LCD</span>
+                        <span class="skill-item">Automotive Display</span>
+                        <span class="skill-item">Foldable Display</span>
+                        <span class="skill-item">Under Panel Camera</span>
+                        <span class="skill-item">Transparent Display</span>
+                        <span class="skill-item">Switchable Privacy Mode</span>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Process Technologies</h3>
+                    <div class="skill-list">
+                        <span class="skill-item">Pixel Define Layer</span>
+                        <span class="skill-item">Dry Etch</span>
+                        <span class="skill-item">CMP</span>
+                        <span class="skill-item">Photolithography</span>
+                        <span class="skill-item">3D Sputter</span>
+                        <span class="skill-item">Photo Alignment</span>
+                        <span class="skill-item">Color Filter</span>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Analysis Techniques</h3>
+                    <div class="skill-list">
+                        <span class="skill-item">XPS</span>
+                        <span class="skill-item">TOF-SIMS</span>
+                        <span class="skill-item">FIB-SEM</span>
+                        <span class="skill-item">TEM</span>
+                        <span class="skill-item">FT-IR</span>
+                        <span class="skill-item">Ramman Spectroscopy</span>
+                        <span class="skill-item">TGA</span>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Software & Data Analysis</h3>
+                    <div class="skill-list">
+                        <span class="skill-item">R</span>
+                        <span class="skill-item">Python</span>
+                        <span class="skill-item">Minitab</span>
+                        <span class="skill-item">2Dimos</span>
+                        <span class="skill-item">LCD Master</span>
+                        <span class="skill-item">Big Data Analysis</span>
+                        <span class="skill-item">AI Applications</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="section">
+            <h2 class="section-title">Recent Professional Experience</h2>
+            
+            <div class="work-item">
+                <h3 class="work-title">Development of Automotive OLED Display for Switchable Privacy Mode</h3>
+                <div class="work-date">Samsung Display (January 2023 - Present)</div>
+                <div class="work-description">
+                    Leading the development of automotive OLED displays with the ability to switch between privacy and public modes using black matrix and lens structures.
+                </div>
+                <ul class="achievements">
+                    <li>Patented technology (US Patent 18583629) demonstrating technical innovation</li>
+                    <li>Designed and implemented switching mechanism between privacy and public modes</li>
+                    <li>Pioneered viewing angle control technology for automotive displays</li>
+                </ul>
+            </div>
+            
+            <div class="work-item">
+                <h3 class="work-title">Development of Side Metal Patterning Process in Micro LED for Tiled Display</h3>
+                <div class="work-date">Samsung Display (April 2021 - December 2022)</div>
+                <div class="work-description">
+                    Developed technology for forming copper lines on the side area of glass using 3D photolithography and 3D sputter process for seamless tiled displays.
+                </div>
+                <ul class="achievements">
+                    <li>Received UDC Pioneering Technology Award in Organic Electronics & Display</li>
+                    <li>Filed over 10 patents related to Micro LED tiled display technology</li>
+                    <li>Improved display integrity and quality for tiled display applications</li>
+                </ul>
+            </div>
+            
+            <div class="work-item">
+                <h3 class="work-title">Development of Galaxy Fold 3</h3>
+                <div class="work-date">Samsung Display (November 2020 - March 2021)</div>
+                <div class="work-description">
+                    Developed foldable display with Under Panel Camera, Stylus Pen compatibility, and Color Filter instead of Polarizer for improved efficiency.
+                </div>
+                <ul class="achievements">
+                    <li>Set up Black PDL Material Process for LTPO in A3 OLED line</li>
+                    <li>Multiple patents registered related to Under Panel Camera technology (US Patent 12225754, 11956997, etc.)</li>
+                    <li>Contributed to improved durability and user experience of foldable displays</li>
+                </ul>
+            </div>
+            
+            <div class="work-item">
+                <h3 class="work-title">Project Leader of Development of Organic Material of Pixel Define Layer</h3>
+                <div class="work-date">Samsung Display (April 2018 - October 2020)</div>
+                <div class="work-description">
+                    Led the development of Black PDL Material for automotive robust devices and OLED without polarizer devices.
+                </div>
+                <ul class="achievements">
+                    <li>Developed robust devices for automotive applications in A4 OLED line</li>
+                    <li>Developed Siloxane HPDL Material for mobile devices in A2 OLED line</li>
+                    <li>Registered over 10 patents related to Pixel Define Layer technology</li>
+                </ul>
+            </div>
+        </section>
+        
+        <section class="section">
+            <h2 class="section-title">Previous Experience Highlights</h2>
+            
+            <div class="work-item">
+                <h3 class="work-title">Development of Dry Etch Process & LTPS OLED Backplane</h3>
+                <div class="work-date">Samsung Display (2016 - 2018)</div>
+                <div class="work-description">
+                    Improved dry etch uniformity for Cst induced kickback voltage Mura and led LTPS OLED backplane development for automotive transparent vehicle applications.
+                </div>
+            </div>
+            
+            <div class="work-item">
+                <h3 class="work-title">Development of Display Technologies for Various Applications</h3>
+                <div class="work-date">Samsung Display (2001 - 2016)</div>
+                <div class="work-description">
+                    Participated in various projects including Chemical Mechanical Polishing (CMP) Process, Curved QUHD LCD TV, Transparent Sealant for Curved LCD, Color e-paper with Cholesteric liquid crystals, and High Transmittance Pixel Design.
+                </div>
+            </div>
+        </section>
+        
+        <section class="section highlights">
+            <h2 class="section-title">Key Achievement Highlights</h2>
+            
+            <div class="highlight-item">
+                <div class="highlight-icon">🏆</div>
+                <div class="highlight-content">
+                    <h3>UDC Pioneering Technology Award</h3>
+                    <p>Received innovation award for developing wrap-around electrodes and black organic layer technology for micro LED tiled displays</p>
+                </div>
+            </div>
+            
+            <div class="highlight-item">
+                <div class="highlight-icon">📱</div>
+                <div class="highlight-content">
+                    <h3>Galaxy Fold 3 Development</h3>
+                    <p>Major contribution to foldable display with Under Panel Camera, stylus pen compatibility, and enhanced efficiency through polarizer replacement with color filter</p>
+                </div>
+            </div>
+            
+            <div class="highlight-item">
+                <div class="highlight-icon">🚗</div>
+                <div class="highlight-content">
+                    <h3>Automotive OLED Display Innovation</h3>
+                    <p>Pioneered switchable privacy mode OLED displays for automotive applications, advancing in-vehicle display technology</p>
+                </div>
+            </div>
+            
+            <div class="highlight-item">
+                <div class="highlight-icon">📝</div>
+                <div class="highlight-content">
+                    <h3>140+ Registered Patents</h3>
+                    <p>Contributed to technical innovation with over 140 registered patents across OLED, Micro LED, LCD, and other display technologies</p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="section">
+            <h2 class="section-title">Education</h2>
+            
+            <div class="education-item">
+                <div class="education-title">Ph.D. in Applied Physics</div>
+                <div class="education-institution">Korea University, Plasma Lab (2011 - 2019)</div>
+            </div>
+            
+            <div class="education-item">
+                <div class="education-title">Master's in Applied Physics</div>
+                <div class="education-institution">Korea University, Liquid Crystal Lab (2006 - 2008)</div>
+            </div>
+            
+            <div class="education-item">
+                <div class="education-title">Bachelor's in Applied Chemistry</div>
+                <div class="education-institution">Seoul National University (1995 - 2001)</div>
+            </div>
+        </section>
+        
+        <section class="section">
+            <h2 class="section-title">Certifications & Technical Skills</h2>
+            
+            <div class="training-grid">
+                <div class="training-item">
+                    <div class="training-title">Six Sigma</div>
+                    <div>Black Belt</div>
+                </div>
+                
+                <div class="training-item">
+                    <div class="training-title">TRIZ</div>
+                    <div>Level 2 Expert</div>
+                </div>
+                
+                <div class="training-item">
+                    <div class="training-title">AI Expert</div>
+                    <div>Level 2</div>
+                </div>
+            </div>
+            
+            <h3 style="margin-top: 30px; color: var(--secondary-color);">Software Proficiency</h3>
+            
+            <div style="margin-top: 15px;">
+                <div class="software-item">
+                    <span class="software-category">LCD Simulation Programs:</span>
+                    <span>2Dimos, LCD master, Techwiz 3D</span>
+                </div>
+                
+                <div class="software-item">
+                    <span class="software-category">Big Data Analysis:</span>
+                    <span>R, Python</span>
+                </div>
+                
+                <div class="software-item">
+                    <span class="software-category">Statistical Analysis:</span>
+                    <span>Minitab</span>
+                </div>
+                
+                <div class="software-item">
+                    <span class="software-category">AI Tools:</span>
+                    <span>Cursor AI, Claude, ChatGPT, Grok3, Gemini, Deep Seek</span>
+                </div>
+            </div>
+        </section>
+        
+        <section class="section patent-section">
+            <h2 class="section-title">Recent Patents (Selection from 140+ Total)</h2>
+            
+            <div class="patent-list">
+                <div class="patent-item">
+                    <div class="patent-title">Under Display Camera Technology</div>
+                    <div class="patent-info">US Patent 12225754 (2025)</div>
+                </div>
+                
+                <div class="patent-item">
+                    <div class="patent-title">Black Pixel Define Layer Technology</div>
+                    <div class="patent-info">US Patent 18146335 (2024)</div>
+                </div>
+                
+                <div class="patent-item">
+                    <div class="patent-title">Automotive OLED Switchable Privacy Mode</div>
+                    <div class="patent-info">US Patent 18583629 (2024)</div>
+                </div>
+                
+                <div class="patent-item">
+                    <div class="patent-title">Micro LED for Tiled Display</div>
+                    <div class="patent-info">US Patent 18652638 (2024)</div>
+                </div>
+                
+                <div class="patent-item">
+                    <div class="patent-title">Polarizer-Free OLED Display</div>
+                    <div class="patent-info">US Patent 12114527 (2024)</div>
+                </div>
+                
+                <div class="patent-item">
+                    <div class="patent-title">Display Device and Manufacturing Method</div>
+                    <div class="patent-info">US Patent 18396205 (2024)</div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="section">
+            <h2 class="section-title">Recent Publications</h2>
+            
+            <div class="publication-item">
+                <div class="publication-title">SID25: Black-Pixel Define Layer with Half-Tone Spacer Structure for Stylus-Compatible Foldable OLED Displays</div>
+            </div>
+            
+            <div class="publication-item">
+                <div class="publication-title">IMID24: Wrap-around Electrodes and Black Organic Layer for micro LED tiled displays</div>
+            </div>
+            
+            <div class="publication-item">
+                <div class="publication-title">SID22: Analysis of Degree of Imidization of Polyimide Organic Film Through Retardation Measurement</div>
+            </div>
+            
+            <div class="publication-item">
+                <div class="publication-title">Mater. Res. Express 6 (2019) 045209: Microscopic-Stress-Induced retardation between amorphous silicon nitride and amorphous indium zinc oxide having different stresses</div>
+            </div>
+        </section>
+        
+        <footer>
+            © 2025 Nakcho Choi — Principal Engineer — Samsung Display
+        </footer>
+    </div>
+</body>
+</html>

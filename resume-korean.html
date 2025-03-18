@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>최낙초 - 디스플레이 기술 전문가</title>
+    <style>
+        :root {
+            --primary-color: #0056b3;
+            --secondary-color: #004080;
+            --accent-color: #e7f3ff;
+            --light-gray: #f5f5f5;
+            --dark-gray: #333;
+            --text-color: #444;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Nanum Gothic', 'Malgun Gothic', sans-serif;
+        }
+        
+        body {
+            color: var(--text-color);
+            line-height: 1.6;
+            background-color: #f9f9f9;
+            padding: 0;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: white;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        header {
+            background: var(--primary-color);
+            color: white;
+            padding: 35px;
+            text-align: center;
+        }
+        
+        h1 {
+            font-size: 2.3rem;
+            margin-bottom: 10px;
+        }
+        
+        .tagline {
+            font-size: 1.1rem;
+            font-weight: 300;
+            margin-bottom: 12px;
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 15px;
+        }
+        
+        .contact-item {
+            margin: 0 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .section {
+            padding: 25px 35px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .section:last-child {
+            border-bottom: none;
+        }
+        
+        .section-title {
+            color: var(--primary-color);
+            margin-bottom: 18px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--accent-color);
+            font-size: 1.4rem;
+        }
+        
+        .summary {
+            margin-bottom: 25px;
+            font-size: 1.05rem;
+            line-height: 1.7;
+        }
+        
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .skill-category {
+            flex: 1 1 250px;
+        }
+        
+        .skill-category h3 {
+            color: var(--secondary-color);
+            margin-bottom: 10px;
+            font-size: 1.05rem;
+        }
+        
+        .skill-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+        
+        .skill-item {
+            background-color: var(--accent-color);
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+        
+        .work-item {
+            margin-bottom: 25px;
+        }
+        
+        .work-title {
+            color: var(--secondary-color);
+            margin-bottom: 5px;
+            font-size: 1.15rem;
+        }
+        
+        .work-date {
+            font-style: italic;
+            color: #777;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+        }
+        
+        .work-description {
+            margin-bottom: 10px;
+        }
+        
+        .achievements {
+            margin-left: 20px;
+        }
+        
+        .achievements li {
+            margin-bottom: 8px;
+        }
+        
+        .highlights {
+            margin-top: 30px;
+        }
+        
+        .highlight-item {
+            display: flex;
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: var(--light-gray);
+            border-radius: 6px;
+        }
+        
+        .highlight-icon {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-right: 15px;
+            min-width: 40px;
+            text-align: center;
+        }
+        
+        .highlight-content h3 {
+            color: var(--secondary-color);
+            margin-bottom: 5px;
+        }
+        
+        .education-item {
+            margin-bottom: 15px;
+        }
+        
+        .education-title {
+            font-weight: bold;
+            color: var(--secondary-color);
+        }
+        
+        .education-institution {
+            font-style: italic;
+        }
+        
+        .certification-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .certification-item {
+            background-color: var(--light-gray);
+            padding: 12px 15px;
+            border-radius: 6px;
+            flex: 1 1 170px;
+        }
+        
+        .certification-title {
+            font-weight: bold;
+            color: var(--secondary-color);
+        }
+        
+        .patent-section {
+            background-color: var(--accent-color);
+        }
+        
+        .patent-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+            gap: 15px;
+        }
+        
+        .patent-item {
+            padding: 12px;
+            background-color: white;
+            border-radius: 6px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .patent-title {
+            font-weight: bold;
+            color: var(--secondary-color);
+            margin-bottom: 5px;
+        }
+        
+        .patent-info {
+            color: #777;
+            font-size: 0.9rem;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 15px;
+            background-color: var(--primary-color);
+            color: white;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            header {
+                padding: 25px 15px;
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            .section {
+                padding: 20px 15px;
+            }
+            
+            .patent-list {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>최낙초</h1>
+            <div class="tagline">삼성디스플레이 수석 엔지니어</div>
+            <div class="tagline">OLED, Micro LED 기술 전문가 - 특허 140건 이상 보유</div>
+            <div class="contact-info">
+                <div class="contact-item">
+                    📧 nakcho.choi@gmail.com
+                </div>
+                <div class="contact-item">
+                    📱 010-4229-7688
+                </div>
+            </div>
+            <div class="contact-info" style="margin-top: 10px;">
+                <div class="contact-item">
+                    📚 <a href="https://scholar.google.com/citations?hl=ko&user=RUPcxioAAAAJ" style="color: white; text-decoration: underline;">Google Scholar</a>
+                </div>
+                <div class="contact-item">
+                    💻 <a href="https://github.com/waterfirst" style="color: white; text-decoration: underline;">GitHub</a>
+                </div>
+                <div class="contact-item">
+                    🔗 <a href="https://www.linkedin.com/in/nakcho-choi-%E5%B4%94-%E6%B4%9B%E5%88%9D-074578bb/" style="color: white; text-decoration: underline;">LinkedIn</a>
+                </div>
+            </div>
+        </header>
+        
+        <section class="section">
+            <h2 class="section-title">전문가 소개</h2>
+            <div class="summary">
+                23년 이상의 디스플레이 산업 경험을 보유한 수석 엔지니어로, 모바일 OLED, 차량용 OLED, Micro LED 분야에서 혁신적인 기술 개발을 주도해 왔습니다. Under Panel Camera, Switchable Privacy Mode, 폴더블 디스플레이 등 최신 기술 개발에 참여했으며, 140건 이상의 특허를 보유하고 있습니다. 물리학 박사로서 AI를 활용한 디스플레이 기술 혁신에 주력하고 있습니다.
+            </div>
+        </section>
+        
+        <section class="section">
+            <h2 class="section-title">핵심 전문 분야</h2>
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h3>디스플레이 기술</h3>
+                    <div class="skill-list">
+                        <span class="skill-item">OLED</span>
+                        <span class="skill-item">Micro LED</span>
+                        <span class="skill-item">LCD</span>
+                        <span class="skill-item">차량용 디스플레이</span>
+                        <span class="skill-item">폴더블 디스플레이</span>
+                        <span class="skill-item">Under Panel Camera</span>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>공정 기술</h3>
+                    <div class="skill-list">
+                        <span class="skill-item">Pixel Define Layer</span>
+                        <span class="skill-item">Dry Etch</span>
+                        <span class="skill-item">CMP</span>
+                        <span class="skill-item">포토리소그래피</span>
+                        <span class="skill-item">3D 스퍼터</span>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>데이터 분석 & 도구</h3>
+                    <div class="skill-list">
+                        <span class="skill-item">R</span>
+                        <span class="skill-item">Python</span>
+                        <span class="skill-item">AI 응용</span>
+                        <span class="skill-item">Big Data 분석</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="section">
+            <h2 class="section-title">주요 경력</h2>
+            
+            <div class="work-item">
+                <h3 class="work-title">차량용 OLED 디스플레이 개발 - 전환 가능 프라이버시 모드</h3>
+                <div class="work-date">삼성디스플레이 (2023년 1월 - 현재)</div>
+                <div class="work-description">
+                    블랙 매트릭스와 렌즈 구조를 활용한 프라이버시/공개 모드 전환 가능한 차량용 OLED 디스플레이 개발
+                </div>
+                <ul class="achievements">
+                    <li>US Patent 18583629 등록으로 기술적 혁신성 인정</li>
+                    <li>차량용 디스플레이의 시야각 제어 기술 혁신</li>
+                </ul>
+            </div>
+            
+            <div class="work-item">
+                <h3 class="work-title">Micro LED 타일 디스플레이용 측면 금속 패터닝 공정 개발</h3>
+                <div class="work-date">삼성디스플레이 (2021년 4월 - 2022년 12월)</div>
+                <div class="work-description">
+                    3D 포토리소그래피 및 3D 스퍼터 공정을 통해 유리 측면 영역에 구리 라인 형성
+                </div>
+                <ul class="achievements">
+                    <li>UDC Pioneering Technology Award in Organic Electronics & Display 수상</li>
+                </ul>
+            </div>
+            
+            <div class="work-item">
+                <h3 class="work-title">갤럭시 폴드 3 개발</h3>
+                <div class="work-date">삼성디스플레이 (2020년 11월 - 2021년 3월)</div>
+                <div class="work-description">
+                    Under Panel Camera, 스타일러스 펜 호환성 및 효율성 향상을 위한 컬러 필터 기술 개발
+                </div>
+                <ul class="achievements">
+                    <li>A3 OLED 라인에서 LTPO용 블랙 PDL 재료 공정 설정</li>
+                    <li>Under Panel Camera 기술 관련 다수 특허 등록</li>
+                </ul>
+            </div>
+        </section>
+        
+        <section class="section highlights">
+            <h2 class="section-title">주요 성과</h2>
+            
+            <div class="highlight-item">
+                <div class="highlight-icon">🏆</div>
+                <div class="highlight-content">
+                    <h3>UDC Pioneering Technology Award 수상</h3>
+                    <p>Micro LED 타일드 디스플레이용 래핑 어라운드 전극 및 블랙 유기층 기술로 혁신 기술상 수상</p>
+                </div>
+            </div>
+            
+            <div class="highlight-item">
+                <div class="highlight-icon">📱</div>
+                <div class="highlight-content">
+                    <h3>폴더블 디스플레이 혁신</h3>
+                    <p>갤럭시 폴드 3의 Under Panel Camera 및 스타일러스 펜 호환 기술 개발로 폴더블 디스플레이 혁신에 기여</p>
+                </div>
+            </div>
+            
+            <div class="highlight-item">
+                <div class="highlight-icon">🚗</div>
+                <div class="highlight-content">
+                    <h3>차량용 디스플레이 기술 개발</h3>
+                    <p>프라이버시 모드 전환 기술 개발로 차량용 디스플레이 시장의 새로운 표준 제시</p>
+                </div>
+            </div>
+            
+            <div class="highlight-item">
+                <div class="highlight-icon">📝</div>
+                <div class="highlight-content">
+                    <h3>140건 이상의 특허 등록</h3>
+                    <p>OLED, Micro LED, LCD 등 다양한 디스플레이 기술 분야에서 혁신적인 특허 다수 보유</p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="section">
+            <h2 class="section-title">학력 및 자격</h2>
+            
+            <div class="education-item">
+                <div class="education-title">물리학 박사 (응용물리학)</div>
+                <div class="education-institution">고려대학교, 플라즈마 연구실 (2011 - 2019)</div>
+            </div>
+            
+            <div class="education-item">
+                <div class="education-title">석사 (응용물리학)</div>
+                <div class="education-institution">고려대학교, 액정 연구실 (2006 - 2008)</div>
+            </div>
+            
+            <div class="certification-grid">
+                <div class="certification-item">
+                    <div class="certification-title">6시그마</div>
+                    <div>블랙 벨트</div>
+                </div>
+                
+                <div class="certification-item">
+                    <div class="certification-title">TRIZ</div>
+                    <div>레벨 2 전문가</div>
+                </div>
+                
+                <div class="certification-item">
+                    <div class="certification-title">AI 전문가</div>
+                    <div>레벨 2</div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="section patent-section">
+            <h2 class="section-title">주요 특허</h2>
+            
+            <div class="patent-list">
+                <div class="patent-item">
+                    <div class="patent-title">Under Display Camera 기술</div>
+                    <div class="patent-info">US Patent 12225754 (2025)</div>
+                </div>
+                
+                <div class="patent-item">
+                    <div class="patent-title">블랙 픽셀 정의 레이어 기술</div>
+                    <div class="patent-info">US Patent 18146335 (2024)</div>
+                </div>
+                
+                <div class="patent-item">
+                    <div class="patent-title">차량용 OLED 프라이버시 모드</div>
+                    <div class="patent-info">US Patent 18583629 (2024)</div>
+                </div>
+                
+                <div class="patent-item">
+                    <div class="patent-title">Micro LED 타일 디스플레이</div>
+                    <div class="patent-info">US Patent 18652638 (2024)</div>
+                </div>
+            </div>
+        </section>
+        
+        <footer>
+            © 2025 최낙초 — 디스플레이 기술 수석 엔지니어 — 삼성디스플레이
+        </footer>
+    </div>
+</body>
+</html>
